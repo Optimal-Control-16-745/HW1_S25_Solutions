@@ -14,7 +14,10 @@ function meshcat_animate(params, X, dt,N)
     sphere = mc.HyperSphere(mc.Point(0,0,0.0), 0.1)
     mc.setobject!(vis[:s1], sphere)
     mc.setobject!(vis[:s2], sphere)
-    anim = mc.Animation(floor(Int,1/dt))
+    #updating this line
+    #anim = mc.Animation(floor(Int,1/dt))
+    anim = mc.Animation(vis, fps=floor(Int,1/dt))
+
     for k = 1:N
         mc.atframe(anim, k) do
             θ1,θ2 = X[k][[1,3]]

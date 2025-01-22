@@ -4,7 +4,7 @@ function animate_brick(qs)
     N = length(qs)
     vis = Visualizer()
     setobject!(vis[:brick], Rect3D(Vec(0,0,0f0), 0.5*Vec(2,1,1f0)), MeshPhongMaterial(color=colorant"firebrick"))
-    anim = MeshCat.Animation(floor(Int,1/dt))
+    anim = MeshCat.Animation(vis, fps=floor(Int,1/dt))
     for k = 1:N
         atframe(anim, k) do 
             q = qs[k]
